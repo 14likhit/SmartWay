@@ -1,0 +1,2 @@
+rootProject.name='SmartWay'
+include ':app'
