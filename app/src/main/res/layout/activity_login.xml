@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.OTPActivity">
+
+        <include layout="@layout/toolbar_default" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/default_content_description"
+            android:padding="5dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:focusable="true"
+            android:text="Enter Your Login Mobile No"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneTextInputLayout"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="@string/phone_number"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:textColor="@color/colorBlack"
+                tools:ignore="UnusedAttribute" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnSendOtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/send_otp"
+            android:theme="@style/NormalButtonStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneTextInputLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,6 +1,5 @@
 package com.example.smartway.ui.splash;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
