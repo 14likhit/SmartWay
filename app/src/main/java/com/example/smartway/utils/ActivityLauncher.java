@@ -3,7 +3,7 @@ package com.example.smartway.utils;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.example.smartway.HomeActivity;
+import com.example.smartway.ui.home.HomeActivity;
 
 public class ActivityLauncher {
 
