@@ -1,14 +1,22 @@
 package com.example.smartway;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 
-public class HomeActivity extends AppCompatActivity {
+import com.example.smartway.base.BaseActivity;
+import com.example.smartway.databinding.ActivityHomeBinding;
+
+public class HomeActivity extends BaseActivity {
+
+    public static final String TAG = "HomeActivity";
+
+    private ActivityHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
     }
 }
