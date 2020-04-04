@@ -14,6 +14,15 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.smartway.data.ApiClient;
+import com.example.smartway.data.ApiService;
+import com.example.smartway.data.model.PostingData;
+import com.example.smartway.data.remote.RemoteDataSource;
+import com.example.smartway.data.remote.RemoteDataSourceClass;
+import com.example.smartway.ui.home.HomeViewModel;
+
 public class LocationService extends Service {
 
     private final LocationServiceBinder binder = new LocationServiceBinder();
@@ -21,6 +30,9 @@ public class LocationService extends Service {
     private LocationListener mLocationListener;
     private LocationManager mLocationManager;
     private NotificationManager notificationManager;
+
+    private HomeViewModel homeViewModel;
+    private RemoteDataSourceClass remoteDataSource;
 
     private final int LOCATION_INTERVAL = 500;
     private final int LOCATION_DISTANCE = 10;
@@ -43,6 +55,28 @@ public class LocationService extends Service {
         public void onLocationChanged(Location location) {
             mLastLocation = location;
             Log.i(TAG, "LocationChanged: " + location);
+            PostingData postingData = new PostingData();
+            postingData.setId(14);
+            postingData.setName("Goat");
+            postingData.setLatitude(mLastLocation.getLatitude());
+            postingData.setLongitude(mLastLocation.getLongitude());
+            postingData.setAccuracy(mLastLocation.getAccuracy());
+            postingData.setDeviceid(null);
+            postingData.setCountrycode(null);
+            postingData.setCountryname(null);
+            postingData.setPostalcode(null);
+            postingData.setLocality(null);
+            remoteDataSource.postUserLocation(postingData, new RemoteDataSource.Callback<String>() {
+                @Override
+                public void onSuccess(String data) {
+                    Log.i(TAG, "Posted " + data);
+                }
+
+                @Override
+                public void onFailed(String error) {
+                    Log.i(TAG, "Error " + error);
+                }
+            });
         }
 
         @Override
@@ -70,6 +104,7 @@ public class LocationService extends Service {
     @Override
     public void onCreate() {
         Log.i(TAG, "onCreate");
+        remoteDataSource = RemoteDataSourceClass.getInstance(ApiClient.getRetrofitInstance().create(ApiService.class));
         startForeground(12345678, getNotification());
         startTracking();
     }

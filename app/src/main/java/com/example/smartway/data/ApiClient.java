@@ -20,10 +20,11 @@ public class ApiClient {
 
     private static Retrofit retrofit;
 
-    private static final String base_url = "https://location-service-mxl7a62gpq-uc.a.run.app";
+    private static final String base_url = "https://location-service-mxl7a62gpq-uc.a.run.app/";
 
     /**
      * Method to instantiate retrofit instance.
+     *
      * @param context->Application Context
      */
     public static void initialiseRetrofitInstance(Context context) {
@@ -53,6 +54,16 @@ public class ApiClient {
 //                    .build();
 
             OkHttpClient httpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new Interceptor() {
+                        @Override
+                        public Response intercept(Chain chain) throws IOException {
+                            Request original = chain.request();
+                            Request.Builder builder = original.newBuilder().removeHeader("@");
+                            builder.header("Content-Type", "application/json");
+                            Request request = builder.build();
+                            return chain.proceed(request);
+                        }
+                    })
                     .build();
 
             retrofit = new Retrofit.Builder()
@@ -65,6 +76,7 @@ public class ApiClient {
 
     /**
      * Method to get retrofit instance
+     *
      * @return->Retrofit instance
      */
     public static Retrofit getRetrofitInstance() {

@@ -1,6 +1,9 @@
 package com.example.smartway.ui.home;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -37,8 +40,6 @@ public class HomeActivity extends BaseActivity implements SmartWayWebView.OnWebV
         HashMap<String, String> userInfo = new HashMap<>();
         HashMap<String, String> cookies = new HashMap<>();
         binding.smartWayWebView.setInteractionListener(this);
-//        binding.smartWayWebView.setWebViewClient(new WebViewClient());
-//        binding.smartWayWebView.setWebChromeClient(new WebChromeClient());
         binding.smartWayWebView.loadWebPage("https://lpmkz.csb.app/", cookies, userInfo);
     }
 

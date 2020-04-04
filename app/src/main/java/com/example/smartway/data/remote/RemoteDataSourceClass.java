@@ -18,14 +18,14 @@ public class RemoteDataSourceClass implements RemoteDataSource {
 
     private static final String TAG = "RemoteDataSourceClass";
 
-    private static RemoteDataSource mInstance;
+    private static RemoteDataSourceClass mInstance;
     private ApiService service;
 
     private RemoteDataSourceClass(ApiService apiService) {
         this.service = apiService;
     }
 
-    public static RemoteDataSource getInstance(ApiService apiService) {
+    public static RemoteDataSourceClass getInstance(ApiService apiService) {
         if (mInstance == null) {
             mInstance = new RemoteDataSourceClass(apiService);
         }
@@ -46,6 +46,8 @@ public class RemoteDataSourceClass implements RemoteDataSource {
         body.addProperty("countryname", postingData.getCountryname());
         body.addProperty("postalcode", postingData.getPostalcode());
         body.addProperty("locality", postingData.getLocality());
+
+        String url = "https://location-service-mxl7a62gpq-uc.a.run.app/";
 
         Call<BaseResponse<String>> request = service.postUserLocation(body);
 
