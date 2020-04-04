@@ -10,6 +10,8 @@ public class PostingData {
     private Float accuracy;
     private String countrycode;
     private String countryname;
+    private String postalcode;
+    private String locality;
 
     public Integer getId() {
         return id;
@@ -90,9 +92,5 @@ public class PostingData {
     public void setLocality(String locality) {
         this.locality = locality;
     }
-
-    private String postalcode;
-    private String locality;
-
 
 }
