@@ -3,4 +3,7 @@
     <string name="default_content_description">Default Image View</string>
     <string name="send_otp">Send OTP</string>
     <string name="phone_number">Phone Number</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
 </resources>
