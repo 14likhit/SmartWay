@@ -75,7 +75,7 @@ public class OnBoardingActivity extends BaseActivity implements ViewPager.OnPage
     }
 
     private void proceed() {
-        ActivityLauncher.launchHomeActivity(this);
+        ActivityLauncher.launchLoginActivity(this);
         finish();
     }
 

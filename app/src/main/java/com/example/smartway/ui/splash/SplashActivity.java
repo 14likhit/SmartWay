@@ -41,7 +41,7 @@ public class SplashActivity extends BaseActivity {
                 ActivityLauncher.launchOnBoardingActivity(SplashActivity.this);
                 finish();
             }
-        }, 50);
+        }, 500);
     }
 
 }
