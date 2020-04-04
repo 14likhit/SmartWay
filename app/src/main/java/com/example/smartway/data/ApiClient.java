@@ -20,7 +20,7 @@ public class ApiClient {
 
     private static Retrofit retrofit;
 
-    private static final String base_url = "https://github-trending-api.now.sh";
+    private static final String base_url = "https://location-service-mxl7a62gpq-uc.a.run.app";
 
     /**
      * Method to instantiate retrofit instance.
