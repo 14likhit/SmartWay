@@ -38,7 +38,8 @@ public class SplashActivity extends BaseActivity {
 //                } else {
 //                    ActivityLauncher.launchLoginActivity(SplashActivity.this);
 //                }
-                ActivityLauncher.launchHomeActivity(SplashActivity.this);
+                ActivityLauncher.launchOnBoardingActivity(SplashActivity.this);
+                finish();
             }
         }, 50);
     }
