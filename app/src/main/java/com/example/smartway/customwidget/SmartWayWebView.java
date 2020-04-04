@@ -48,6 +48,7 @@ public class SmartWayWebView extends WebView {
     @SuppressLint("SetJavaScriptEnabled")
     public void init() {
         getSettings().setJavaScriptEnabled(true);
+        getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         getSettings().setDomStorageEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
@@ -155,7 +156,7 @@ public class SmartWayWebView extends WebView {
     }
 
     private void updateCookie(String url, HashMap<String, String> cookies) {
-        CookieSyncManager.createInstance(context);
+        CookieSyncManager.createInstance(getContext());
         CookieManager cookieManager = CookieManager.getInstance();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             cookieManager.setAcceptThirdPartyCookies(this, true);

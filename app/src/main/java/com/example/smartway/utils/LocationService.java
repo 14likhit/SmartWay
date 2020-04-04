@@ -71,6 +71,7 @@ public class LocationService extends Service {
     public void onCreate() {
         Log.i(TAG, "onCreate");
         startForeground(12345678, getNotification());
+        startTracking();
     }
 
     @Override
